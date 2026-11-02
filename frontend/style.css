@@ -1,0 +1,64 @@
+:root {
+  --bg: #7FD3F2;        /* sky blue */
+  --panel: #2A8FC4;    /* mid blue */
+  --line: #2A8FC4;     /* grid & borders */
+  --text: #0E4A75;     /* dark blue */
+  --muted: #0E4A75;    /* same for muted text */
+  --accent: #F3E9D2;   /* cream */
+  --ok: #3ddc97;       /* keep ok */
+  --bad: #ff6b6b;      /* keep bad */
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; font-family: "Montserrat", system-ui, sans-serif; background: var(--bg); color: var(--text); }
+
+/* Typography */
+h2, h3 { font-family: "Cormorant Garamond", serif; color: var(--text); margin: 0; }
+h2 { font-size: 1.4rem; margin: 24px 0 12px; }
+h3 { font-size: 1rem; }
+
+/* Navbar */
+.navbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 16px; background: var(--panel); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 10; }
+.brand { display: flex; align-items: center; gap: 10px; color: inherit; text-decoration: none; }
+.brand img { height: 36px; }
+.brand span { display: flex; flex-direction: column; line-height: 1.2; }
+.brand small { color: var(--muted); font-size: .72rem; }
+.status { font-size: .8rem; color: var(--muted); white-space: nowrap; }
+.status i { font-size: .6rem; color: var(--muted); }
+.status.live i { color: var(--ok); }
+.status.err i { color: var(--bad); }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 16px; }
+
+/* Cards */
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 14px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+.grid { display: grid; gap: 12px; }
+.cams { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.sensors { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); margin-bottom: 12px; }
+
+.cam img { display: block; width: 100%; aspect-ratio: 16/9; object-fit: cover; cursor: zoom-in; background: #000; }
+.cam figcaption { padding: 8px 14px; font-size: .85rem; color: var(--muted); }
+
+.sensor { display: flex; flex-direction: column; gap: 4px; }
+.sensor i, .geotag > i { color: var(--accent); font-size: 1.2rem; }
+.label { color: var(--muted); font-size: .75rem; text-transform: uppercase; letter-spacing: .05em; }
+.value { font-size: 1.35rem; font-weight: 700; word-break: break-word; }
+
+.geotag { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+.geotag .value { font-size: .95rem; font-weight: 600; display: block; }
+
+.map-controls { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.toggle { display: flex; gap: 6px; }
+.btn { padding: 4px 16px; border-radius: 8px; border: 1px solid var(--line); color: var(--muted); text-decoration: none; font-weight: 600; }
+.btn.active { background: var(--accent); border-color: var(--accent); color: #05222d; }
+.map-wrap { position: relative; width: 100%; max-width: 640px; margin: 0 auto; aspect-ratio: 1/1; }
+
+/* Modal */
+.modal { position: fixed; inset: 0; background: rgba(0,0,0,.88); display: none; flex-direction: column; align-items: center; justify-content: center; gap: 12px; z-index: 100; padding: 16px; }
+.modal.show { display: flex; }
+.modal img { max-width: 95vw; max-height: 80vh; border-radius: 8px; }
+.modal .caption { color: var(--text); }
+.modal .close { position: absolute; top: 14px; right: 20px; font-size: 2rem; color: var(--text); background: none; border: 0; cursor: pointer; }
+
+/* Desktop‑only tweaks (mobile not required) */
+@media (max-width: 480px) { .value { font-size: 1.1rem; } }

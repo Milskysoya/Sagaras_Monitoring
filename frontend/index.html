@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AERONAUTIKA-UB</title>
+  <link rel="icon" href="Varuna.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <!-- Font: Montserrat (sans) + Cormorant Garamond (serif) -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+</head>
+<body>
+  <nav class="navbar">
+    <a class="brand" href="index.html">
+      <img src="Varuna.ico" alt="Varuna" onerror="this.style.display='none'">
+      <span>
+        <strong>NAUTIKAL BRAWIJAYA</strong>
+        <small>Universitas Brawijaya</small>
+      </span>
+    </a>
+    <span id="status" class="status" title="Status koneksi">
+      <i class="fa-solid fa-circle"></i> <span id="status-text">Menghubungkan…</span>
+    </span>
+  </nav>
+
+  <main class="container">
+    <section>
+      <h2><i class="fa-solid fa-camera"></i> Monitoring</h2>
+      <div class="grid cams">
+        <figure class="card cam">
+          <img id="cam-surface" src="Varuna.jpg" alt="Surface Cam">
+          <figcaption>Surface Cam</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section>
+      <h2><i class="fa-solid fa-chart-line"></i> Attitude Information</h2>
+      <div class="grid sensors">
+        <div class="card sensor"><i class="fa-solid fa-gauge-high"></i><span class="label">SOG</span><span class="value" id="sog">0.0 Knot</span></div>
+        <div class="card sensor"><i class="fa-solid fa-compass"></i><span class="label">COG</span><span class="value" id="cog">0°</span></div>
+        <div class="card sensor"><i class="fa-solid fa-location-dot"></i><span class="label">Position</span><span class="value" id="position">--</span></div>
+        <div class="card sensor"><i class="fa-solid fa-star"></i><span class="label">Score</span><span class="value" id="score">0</span></div>
+      </div>
+
+      <div class="card geotag">
+        <i class="fa-solid fa-satellite"></i>
+        <div>
+          <span class="label">Last Geotag</span>
+          <span class="value" id="geotag">Waiting for data...</span>
+        </div>
+      </div>
+
+      <div class="card mapping">
+        <div class="map-controls">
+          <h3>Trajectory</h3>
+          <div class="toggle">
+            <a class="btn active" href="#">A</a>
+            <a class="btn" href="ArkawiraB.html">B</a>
+          </div>
+        </div>
+        <div class="map-wrap">
+          <canvas id="realtimePlot"></canvas>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>
